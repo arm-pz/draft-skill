@@ -1,7 +1,7 @@
 # draft-skill
 
-An agent skill that creates a **new** skill from a plain idea — no prompt list, no zip, just "I want an
-agent that does X". It confirms the purpose before writing a file, checks the idea against the skills
+An AI agent skill that drafts a **new** skill — a `SKILL.md` for Claude Code, Codex, Cursor or Qoder —
+from a plain idea: no prompt list, no zip, just "I want an agent that does X". It confirms the purpose before writing a file, checks the idea against the skills
 already installed so two of them don't end up claiming the same request, decides what belongs in
 `scripts/` versus `references/` versus `assets/`, writes a description that actually triggers, validates
 the result with a script, and hands it off for tuning and packaging.
@@ -9,6 +9,11 @@ the result with a script, and hands it off for tuning and packaging.
 The two things it is strictest about are the two that fail silently in production: a description that
 promises a step the body never performs, and a name that already belongs to a better-established
 project. Both have a check written down rather than a feeling.
+
+Siblings: [prompts-to-skill](https://github.com/arm-pz/prompts-to-skill) when you already have a list of
+prompts, [tune-skill](https://github.com/arm-pz/tune-skill) to fix a skill that exists. Anthropic's
+`skill-creator` covers the same ground with evals; this one is plain markdown plus a validator. More at
+[skills.caffeinity.com/draft-skill](https://skills.caffeinity.com/draft-skill/).
 
 ## Install
 
