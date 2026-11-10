@@ -20,13 +20,15 @@ Drafting is deciding what a skill is for, then writing only the files that carry
 
 ### 1. Get concrete examples
 
-Ask for three or four requests the skill should catch, and one it should refuse. Ask what the output looks like — a report, an edited file, a command, a decision. Do not run an interview; propose a shape from what the user already said and ask them to correct it.
+Ask for three or four requests the skill should catch, and one it should refuse. Ask what the output looks like: a report, an edited file, a command, a decision. Do not run an interview; propose a shape from what the user already said and ask them to correct it.
 
 If the examples are all phrased the same way, ask for one in different words. Triggering fails on variety, not on the obvious case.
 
+One long prompt or pasted rule set counts as an idea, even though it is a prompt. `prompts-to-skill` needs three or more prompts to see a trigger and a scope, so a single one is drafted here: treat its text as the source material for the body, and still ask for the requests the skill should catch.
+
 ### 2. Check the installed set
 
-Read the `description` of every sibling the examples touch — from the file, not from memory or a README. Write one line each: what it claims, what it produces, what it hands off. Compare against the requests from step 1 and record any overlap before designing anything. If the job is already claimed, stop and say whether tuning the existing skill is the cheaper move.
+Read the `description` of every sibling the examples touch, from the file and not from memory or a README. Write one line each: what it claims, what it produces, what it hands off. Compare against the requests from step 1 and record any overlap before designing anything. If the job is already claimed, stop and say whether tuning the existing skill is the cheaper move.
 
 ### 3. Decide the boundary, in both directions
 
@@ -34,15 +36,15 @@ A skill needs one line saying what it owns and one saying where it stops and who
 
 ### 4. Plan the resources
 
-- `scripts/` — code you would otherwise rewrite every run, or anything that must be deterministic. Must be tested by running it.
-- `references/` — knowledge loaded while working: schemas, checklists, house conventions. Split when a section stops being necessary to every run.
-- `assets/` — things that end up in the output, never read into context.
+- `scripts/`: code you would otherwise rewrite every run, or anything that must be deterministic. Must be tested by running it.
+- `references/`: knowledge loaded while working: schemas, checklists, house conventions. Split when a section stops being necessary to every run.
+- `assets/`: things that end up in the output, never read into context.
 
 Create only the directories you fill. If all three are empty, the skill is prose and that is fine.
 
 ### 5. Choose the name
 
-Lowercase words joined by hyphens, short, verb-led, and the folder named exactly after it. Before settling, search GitHub for the name and check whether something better-established already owns it — see `references/structure.md` for how to read a collision, because a name that ranks below an unrelated project is a tax you pay forever.
+Lowercase words joined by hyphens, short, verb-led, and the folder named exactly after it. Before settling, search GitHub for the name and check whether something better-established already owns it. See `references/structure.md` for how to read a collision, because a name that ranks below an unrelated project is a tax you pay forever.
 
 ### 6. Write it
 
@@ -58,7 +60,7 @@ Work through `references/structure.md` for the checks the script cannot make, in
 
 ### 8. Write the test cases
 
-Follow the case format in tune-skill (`<path-to>/tune-skill/references/test-cases.md`). The examples from step 1 become your clear triggers; add implicit triggers, near-misses, and one case on each side of every boundary from step 3. Mark a case written until it has been run.
+Follow the case format in tune-skill (`<path-to>/tune-skill/references/test-cases.md`) and save the cases as `evals/trigger-cases.md`. They are test material, not something the skill loads while working, so they stay out of `references/`. The examples from step 1 become your clear triggers; add implicit triggers, near-misses, and one case on each side of every boundary from step 3. Mark a case written until it has been run.
 
 ## Hand off
 

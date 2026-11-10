@@ -1,6 +1,6 @@
 # draft-skill
 
-An AI agent skill that drafts a **new** skill — a `SKILL.md` for Claude Code, Codex, Cursor or Qoder —
+An AI agent skill that drafts a **new** skill (a `SKILL.md` for Claude Code, Codex, Cursor or Qoder)
 from a plain idea: no prompt list, no zip, just "I want an agent that does X". It confirms the purpose before writing a file, checks the idea against the skills
 already installed so two of them don't end up claiming the same request, decides what belongs in
 `scripts/` versus `references/` versus `assets/`, writes a description that actually triggers, validates
@@ -30,15 +30,15 @@ Install that first, or the validate step has to be done by hand.
 ## Ask it things like
 
 - "Make me a skill that reviews a client's SEO report."
-- "I keep pasting the same instructions — turn that capability into a skill."
+- "I keep pasting the same instructions, turn that capability into a skill."
 - "Scaffold a skill for talking to our internal API."
-- "There's an empty folder in `~/.qoder/skills/` — fill it properly."
+- "There's an empty folder in `~/.qoder/skills/`. Fill it properly."
 
 ## What it does before writing anything
 
 1. Collects three or four requests the skill should catch and one it should refuse, plus the output shape.
 2. Reads the `description` of every installed sibling the examples touch, from the file.
-3. Sets the boundary in both directions — what this owns, where it stops, who takes over.
+3. Sets the boundary in both directions: what this owns, where it stops, who takes over.
 4. Plans resources, then names the skill after checking GitHub for collisions.
 
 Step 4's collision reading is documented in `references/structure.md`, including the trap that
@@ -51,6 +51,8 @@ evidence.
 draft-skill/
 ├── SKILL.md                    # the 8-step authoring workflow
 ├── LICENSE
+├── evals/
+│   └── trigger-cases.md        # hand-run trigger cases
 └── references/
     └── structure.md            # collision reading + the 7 checks the script can't make
 ```
@@ -68,8 +70,8 @@ draft-skill/
 ## Provenance and status
 
 Written from scratch on 2026-10-19 for this skill suite. Its rules are the conventions already enforced
-by the sibling skills in this repo family — the description shape and the test-case format from
-`tune-skill`, the confirmation gates from `prompts-to-skill` — plus the deterministic checks
+by the sibling skills in this repo family (the description shape and the test-case format from
+`tune-skill`, the confirmation gates from `prompts-to-skill`) plus the deterministic checks
 `check_skill.py` runs. A skill-creator is the conventional first skill in the Agent Skills ecosystem, and
 this one is addressed to that idea; it contains no text from Qoder's built-in `skill-creator`, which ships
 without a license permitting redistribution, so nothing from it was copied, reworded or restructured here.
